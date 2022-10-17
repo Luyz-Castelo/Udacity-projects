@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Basic Portfolio with Bootstrap</title>
+</head>
+<body>
+  <div class="container">
+    <div class="container-fluid header">
+      <div class="row">
+        <div class="col-md-6">
+          <img class="img-responsive logo-dummy-photo" src="./images/logo_test.png" alt="">
+        </div>
+        <div class="col-md-6 header-text">
+          <h1 class="author-name">Luyz Castelo Branco</h1>
+          <h4>developer in progress</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <img class="img-responsive dummy-photo" src="./images/work-dummy-photo.png" alt="">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2 style="padding: 1rem 2.75rem 0rem">Featured Work</h2>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6">
+          <img class="img-responsive work-dummy-photo" src="./images/work-dummy-photo.png" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." data-bs-toggle="modal" data-bs-target="#modal">
+          <h3 class="work-dummy-name">Appify</h3>
+          <h6 class="work-dummy-link">
+            <a href="https://www.123freevectors.com/solidbackgrounds/very-light-brown/" target="_blank">https://www.123freevectors.com/solidbackgrounds/very-light-brown/</a>
+          </h6>
+        </div>
+        <div class="col-md-6">
+          <img class="img-responsive work-dummy-photo" src="./images/work-dummy-photo.png" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." data-bs-toggle="modal" data-bs-target="#modal">
+          <h3 class="work-dummy-name">Sunflower</h3>
+          <h6 class="work-dummy-link">
+            <a href="https://www.123freevectors.com/solidbackgrounds/very-light-brown/" target="_blank">https://www.123freevectors.com/solidbackgrounds/very-light-brown/</a>
+          </h6>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img class="img-responsive work-dummy-photo" src="./images/work-dummy-photo.png" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." data-bs-toggle="modal" data-bs-target="#modal">
+            <h3 class="work-dummy-name">Appify</h3>
+            <h6 class="work-dummy-link">
+              <a href="https://www.123freevectors.com/solidbackgrounds/very-light-brown/" target="_blank">https://www.123freevectors.com/solidbackgrounds/very-light-brown/</a>
+            </h6>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img class="img-responsive modal-image" id="modal-image" src="" alt="">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <p id="modal-description"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    let modal = document.getElementById('modal')
+    modal.addEventListener('show.bs.modal', event => {
+
+      let button = event.relatedTarget;
+
+      const imageSrc = button.getAttribute('src')
+      const imageDescription = button.getAttribute('alt')
+
+      let modalImage = modal.querySelector('#modal-image')
+      let modalDescription = modal.querySelector('#modal-description')
+
+      modalImage.src = imageSrc;
+      modalImage.alt = imageDescription;
+      modalDescription.textContent = imageDescription;
+    })
+  </script>
+</body>
+</html>
